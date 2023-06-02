@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+
+  .header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .job-card {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 500px;
+    text-align: center;
+    display: inline-block;
+    background-color: aqua;
+    margin-left: 300px;
+  }
+
+
+  .job-image img {
+    width: 100%;
+    height: 300px;
+  }
+
+  .job-title {
+    margin-top: 20px;
+  }
+
+  .apply-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077cc;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .apply-button:hover {
+    background-color: #005faa;
+    transform: translate(0, -5px);
+  }
+
+  .job-form {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+  }
+
+  .form-title {
+    margin-top: 0;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    resize: vertical;
+  }
+
+  .form-group textarea {
+    height: 100px;
+  }
+
+  .submit-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077cc;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .submit-button:hover {
+    background-color: #005faa;
+    transform: translate(0, -5px);
+  }
+
+  @media screen and (max-width: 767px) {
+    .job-card {
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      width: 290px;
+      margin-left: 1px;
+      margin-right: 1px;
+    }
+    .header {
+      width: 300px;
+    }
+
+    .job-image {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .job-form {
+      width: 100%;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .submit-button {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 766px) {
+    .header {
+      width: 100%;
+    }
+  }
+
+</style>
+
+<body>
+  <header class="header">
+    <h1>Jobs</h1>
+  </header>
+  <div class="job-card">
+    <div class="job-image">
+      <img
+        src="data:image/jpeg;base64,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"
+        alt="Job Image">
+    </div>
+    <div class="job-title">
+      <h3>Web Developer</h3>
+      <p>ABC Company</p>
+    </div>
+    <button class="apply-button">Apply</button>
+    <div class="job-form">
+      <h4 class="form-title">Apply for Web Developer at ABC Company</h4>
+      <form>
+        <div class="form-group">
+          <label for="name">Name*</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone*</label>
+          <input type="tel" id="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="resume">Resume*</label>
+          <input type="file" id="resume" required>
+        </div>
+        <div class="form-group">
+          <label for="cover-letter">Cover Letter*</label>
+          <textarea id="cover-letter" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="job-card">
+    <div class="job-image">
+      <img src="https://png.pngtree.com/thumb_back/fh260/back_pic/03/76/37/2257bea537b28e6.jpg" alt="Job Image">
+    </div>
+    <div class="job-title">
+      <h3>Web Developer</h3>
+      <p>ABC Company</p>
+    </div>
+    <button class="apply-button">Apply</button>
+    <div class="job-form">
+      <h4 class="form-title">Apply for Web Developer at ABC Company</h4>
+      <form>
+        <div class="form-group">
+          <label for="name">Name*</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone*</label>
+          <input type="tel" id="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="resume">Resume*</label>
+          <input type="file" id="resume" required>
+        </div>
+        <div class="form-group">
+          <label for="cover-letter">Cover Letter*</label>
+          <textarea id="cover-letter" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="job-card">
+    <div class="job-image">
+      <img
+        src="https://media.istockphoto.com/id/693293382/photo/man-hand-writing-job-vacancy-with-black-marker-on-visual-screen.jpg?s=612x612&w=0&k=20&c=jAqWfyVcI5wToX03BCz67ym9BMzj8cJ7if8qqAtMAII="
+        alt="jobe image">
+    </div>
+    <div class="job-title">
+      <h3>Web Developer</h3>
+      <p>ABC Company</p>
+    </div>
+    <button class="apply-button">Apply</button>
+    <div class="job-form">
+      <h4 class="form-title">Apply for Web Developer at ABC Company</h4>
+      <form>
+        <div class="form-group">
+          <label for="name">Name*</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone*</label>
+          <input type="tel" id="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="resume">Resume*</label>
+          <input type="file" id="resume" required>
+        </div>
+        <div class="form-group">
+          <label for="cover-letter">Cover Letter*</label>
+          <textarea id="cover-letter" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="job-card">
+    <div class="job-image">
+      <img src="https://thumbs.dreamstime.com/b/good-job-many-thumb-go-up-48400740.jpg" alt="Job Image">
+    </div>
+    <div class="job-title">
+      <h3>Web Developer</h3>
+      <p>ABC Company</p>
+    </div>
+    <button class="apply-button">Apply</button>
+    <div class="job-form">
+      <h4 class="form-title">Apply for Web Developer at ABC Company</h4>
+      <form>
+        <div class="form-group">
+          <label for="name">Name*</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone*</label>
+          <input type="tel" id="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="resume">Resume*</label>
+          <input type="file" id="resume" required>
+        </div>
+        <div class="form-group">
+          <label for="cover-letter">Cover Letter*</label>
+          <textarea id="cover-letter" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    // Get all job cards and apply buttons
+    const jobCards = document.querySelectorAll('.job-card');
+    const applyButtons = document.querySelectorAll('.apply-button');
+
+    // Add click event listener to all apply buttons
+    applyButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        // Hide all other job forms
+        jobCards.forEach((card, i) => {
+          if (i !== index) {
+            card.querySelector('.job-form').style.display = 'none';
+          }
+        });
+
+        // Show the job form for the clicked apply button
+        const jobForm = jobCards[index].querySelector('.job-form');
+        jobForm.style.display = 'block';
+
+        // Add submit event listener to the job form
+        jobForm.querySelector('form').addEventListener('submit', (event) => {
+          event.preventDefault();
+
+          // Get form input values
+          const name = jobForm.querySelector('#name').value;
+          const email = jobForm.querySelector('#email').value;
+          const phone = jobForm.querySelector('#phone').value;
+          const resume = jobForm.querySelector('#resume').value;
+          const coverLetter = jobForm.querySelector('#cover-letter').value;
+
+          // Validate form input values
+          if (!name) {
+            alert('Please enter your name.');
+          } else if (!email) {
+            alert('Please enter your email.');
+          } else if (!phone) {
+            alert('Please enter your phone number.');
+          } else if (!resume) {
+            alert('Please upload your resume.');
+          } else if (!coverLetter) {
+            alert('Please enter your cover letter.');
+          } else {
+            // Form input values are valid, submit the form
+            alert('Form submitted successfully.');
+            jobForm.style.display = 'none';
+          }
+        });
+      });
+    });
+
+  </script>
+</body>
+
+</html>

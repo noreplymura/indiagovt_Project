@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>FAQ Page</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #fff;
+    }
+
+    header {
+        background-color: #f30d65;
+        color: #fff;
+        padding: 10px;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 80px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .faq-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .faq {
+        width: 90%;
+        max-width: 600px;
+        margin: 20px;
+        padding: 20px;
+        border: 5px solid #ccc;
+    }
+
+    .faq-question {
+        margin-top: 0;
+    }
+
+    .faq-answer {
+        margin-bottom: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+        .faq-container {
+            justify-content: space-between;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <h1>FAQ Page</h1>
+    </header>
+    <main>
+        <div class="faq-container">
+            <div class="faq">
+                <h2 class="faq-question">What is this website about?</h2>
+                <div class="faq-answer">
+                    <p>This website is about providing answers to frequently asked questions.</p>
+                </div>
+            </div>
+            <div class="faq">
+                <h2 class="faq-question">How do I submit a question?</h2>
+                <div class="faq-answer">
+                    <p>You can submit a question by clicking the "Submit Question" button and filling out the form.</p>
+                </div>
+            </div>
+            <div class="faq">
+                <h2 class="faq-question">How long will it take to receive an answer?</h2>
+                <div class="faq-answer">
+                    <p>We try to answer questions as quickly as possible, but it may take up to 24 hours to receive a
+                        response.</p>
+                </div>
+            </div>
+            <div class="faq">
+                <h2 class="faq-question">Is this service free?</h2>
+                <div class="faq-answer">
+                    <p>Yes, this service is completely free.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Add functionality to FAQ questions
+        const questions = document.querySelectorAll('.faq-question');
+
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                question.nextElementSibling.classList.toggle('active');
+            });
+        });
+
+    </script>
+</body>
+
+</html>

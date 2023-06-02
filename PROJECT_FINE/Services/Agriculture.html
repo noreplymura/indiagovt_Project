@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Agriculture Government Service</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<style>
+	/* General Styles */
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: Arial, sans-serif;
+		margin: 0;
+		padding: 0;
+	}
+
+	/* Header Styles */
+
+	header {
+		background-color: #2f8e41;
+		color: #fff;
+		padding: 20px;
+	}
+
+	header h1 {
+		margin: 0;
+		font-size: 36px;
+	}
+
+	/* Navigation Styles */
+
+	nav {
+		background-color: #4CAF50;
+		overflow: hidden;
+	}
+
+	nav a {
+		float: left;
+		display: block;
+		color: #fff;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		font-size: 20px;
+	}
+
+	nav a:hover {
+		background-color: #ddd;
+		color: black;
+	}
+
+	.active {
+		background-color: #4CAF50;
+		color: white;
+	}
+
+	/* Main Content Styles */
+
+	main {
+		padding: 20px;
+	}
+
+	section {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+
+	section h2 {
+		font-size: 28px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	section p {
+		font-size: 18px;
+		margin: 0 20px;
+		text-align: justify;
+	}
+
+	section img {
+		width: 100%;
+		max-width: 400px;
+		margin: 20px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+	}
+
+	/* Form Styles */
+
+	form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+
+	form label {
+		font-size: 20px;
+		margin-right: 20px;
+		width: 150px;
+		text-align: right;
+	}
+
+	form input[type="text"] {
+		font-size: 18px;
+		padding: 5px;
+		margin-right: 20px;
+		width: 250px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+	}
+
+	form button {
+		font-size: 18px;
+		padding: 5px 20px;
+		background-color: #4CAF50;
+		color: #fff;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	form button:hover {
+		background-color: #2f8e41;
+	}
+
+	/* Responsive Styles */
+
+	@media only screen and (max-width: 768px) {
+		section {
+			flex-direction: column;
+		}
+
+		section img {
+			max-width: 100%;
+		}
+
+		form {
+			flex-direction: column;
+		}
+
+		form label {
+			margin-right: 0;
+			margin-bottom: 10px;
+			width: auto;
+			text-align: left;
+		}
+
+		form input[type="text"] {
+			margin-right: 0;
+			margin-bottom: 10px;
+			width: 100%;
+		}
+	}
+</style>
+
+<body>
+	<header>
+		<h1>Agriculture Government Service</h1>
+	</header>
+	<main>
+		<section class="hero">
+			<div class="hero-content">
+				<h2>Welcome to Our Agriculture Government Service</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel mi id sapien luctus bibendum nec at
+					tellus. Nulla facilisi. Sed eu diam eget sapien rhoncus commodo. Vestibulum vel finibus sapien.
+					Vivamus condimentum nisl vel consectetur ultrices. Maecenas tristique lacus vel dolor malesuada, eu
+					tincidunt ipsum fermentum. Proin lobortis eleifend dui in molestie. Nullam ac commodo arcu, nec
+					pretium metus.</p>
+				<a href="#" class="cta-btn">Learn More</a>
+			</div>
+		</section>
+		<section class="services">
+			<h3>Our Services</h3>
+			<ul>
+				<li>
+					<div class="icon">
+						<i class="fas fa-seedling"></i>
+					</div>
+					<div class="service-content">
+						<h4>Seed Supply</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel mi id sapien luctus
+							bibendum nec at tellus. Nulla facilisi.</p>
+					</div>
+				</li>
+				<li>
+					<div class="icon">
+						<i class="fa-wheat"></i>
+					</div>
+					<div class="service-content">
+						<h4>Crop Insurance</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel mi id sapien luctus
+							bibendum nec at tellus. Nulla facilisi.</p>
+					</div>
+				</li>
+				<li>
+					<div class="icon">
+						<i class="fas fa-tractor"></i>
+					</div>
+					<div class="service-content">
+						<h4>Farm Equipment Loans</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel mi id sapien luctus
+							bibendum nec at tellus. Nulla facilisi.</p>
+					</div>
+				</li>
+				<li>
+					<div class="icon">
+						<i class="fas fa-leaf"></i>
+					</div>
+					<div class="service-content">
+						<h4>Organic Farming Certification</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel mi id sapien luctus
+							bibendum nec at tellus. Nulla facilisi.</p>
+					</div>
+				</li>
+			</ul>
+		</section>
+	</main>
+</body>
+
+</html>

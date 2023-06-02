@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .slider-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        height: 100px;
+        padding: 20px;
+    }
+    
+    .slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .slider::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .slide {
+        flex: 0 0 100%;
+        padding: 10px;
+        font-size: 2em;
+        text-align: center;
+        background-color: #f5f5f5;
+    }
+    
+    .slider a {
+        text-decoration: none;
+        color: #5ae519;
+    }
+    
+    .slider a:hover {
+        color: #2d0fc7;
+    }
+    
+    
+    /* Media Query for Small Devices */
+    @media screen and (max-width: 576px) {
+        .slide {
+            font-size: 12px;
+            height: fit-content;
+        }
+    }
+    
+    /* Media Query for Medium Devices */
+    @media screen and (min-width: 576px) and (max-width: 992px) {
+        .slide {
+            font-size: 15px;
+            height: fit-content;
+        }
+    }
+    
+    /* Media Query for Large Devices */
+    @media screen and (min-width: 992px) {
+        .slide {
+            font-size: 20px;
+            height: fit-content;
+        }
+    }
+    
+</style>
+<body>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide"><a href="#"><i class="fa fa-star"></i>Lorem ipsum, dolor sit amet
+                    consectetur adipisicing elit.<i class="fa fa-star"></i></a></div>
+            <div class="slide"><a href="#"><i class="fa fa-star"></i>Lorem ipsum, dolor sit amet
+                    consectetur adipisicing elit.<i class="fa fa-star"></i></a></div>
+            <div class="slide"><a href="#"><i class="fa fa-star"></i>Lorem ipsum, dolor sit amet
+                    consectetur adipisicing elit.<i class="fa fa-star"></i></a></div>
+            <div class="slide"><a href="#"><i class="fa fa-star"></i>Lorem ipsum, dolor sit amet
+                    consectetur adipisicing elit.<i class="fa fa-star"></i></a></div>
+        </div>
+    </div>
+
+<script>
+    
+//sid Bar
+
+$("#mobile").click(function () {
+    $('.sideBar').addClass("showMenu");
+    $('.sideBar').removeClass("widthChange");
+    $('.backdrop').addClass('showBackdrop')
+  });
+  $(".cross-icon").click(function () {
+    $('.sideBar').removeClass("showMenu");
+    $('.backdrop').removeClass('showBackdrop')
+  });
+  $(".backdrop").click(function () {
+    $('.sideBar').removeClass("showMenu");
+    $('.backdrop').removeClass('showBackdrop')
+  });
+  $("#desktop").click(function () {
+    $('li label').toggleClass("hideMenuList");
+    $('.sideBar').toggleClass("widthChange");
+  });
+  $('li').click(function () {
+    $('li').removeClass();
+    $(this).addClass('selected');
+    $('.sideBar').removeClass("showMenu");
+  });
+  
+</script>
+</body>
+</html>
